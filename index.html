@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lofi - Girl Dev</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <nav id="menu-h">
+        <ul>
+            <li><a href="#">Lofi - Girl Dev</a></li>
+            <li><a id="openModalBtn" href="#">Sobre </a></li>
+            <li><a href="https://github.com/lucyfurt" target="_blank">Projetos</a></li>
+            <li><a id="openFormModalBtn" href="#">Contatos</a></li>
+        </ul>
+    </nav>
+    <div id="container">
+        <div id="btn-direction">
+            <button id="playButton1" class="botao">Lofi - Beats</button>
+            <audio id="myAudio1" src="sound/lofi-study-112191.mp3"></audio>
+
+            <button id="playButton2" class="botao">Natureza</button>
+            <audio id="myAudio2" src="sound/soft-rain-ambient-111154.mp3"></audio>
+        </div>
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModalBtn">&times;</span>
+            <p>Este projeto explora conteúdos de Html, Css e Javascript. Divirtam-se!</p>
+        </div>
+    </div>
+    <div id="myFormModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeFormModalBtn">&times;</span>
+            <h2>Entre em contato:</h2>
+            <form id="myForm">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="mensagem">Mensagem:</label>
+                <input type="text" id="mensagem" name="mensagem" required>
+
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Luciana Furtado - Todos os direitos reservados</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
