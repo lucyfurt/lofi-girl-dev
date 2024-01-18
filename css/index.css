@@ -139,3 +139,24 @@ input[type="submit"]:hover {
 #img {
     background-image: none;
 }
+
+/* Adicione estas regras de mídia no final do seu CSS */
+
+@media only screen and (max-width: 600px) {
+    #menu-h ul li {
+        margin-right: 20px; /* Ajuste o espaçamento entre os itens do menu para dispositivos móveis */
+    }
+
+    #btn-direction {
+        flex-direction: column; /* Alinhe os botões verticalmente para dispositivos móveis */
+        text-align: center;
+    }
+
+    .botao {
+        margin: 0 0 10px 0; /* Adicione margem entre os botões para dispositivos móveis */
+    }
+
+    #menu-h ul {
+        padding-inline: 0; /* Remova o preenchimento lateral do menu para dispositivos móveis */
+    }
+}
