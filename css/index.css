@@ -87,7 +87,7 @@ input[type="submit"]:hover {
     position: absolute;
     z-index: 2;
     top: 70%;
-    transform: translateY(50%);
+    transform: translateY(10%);
     display: flex;
 }
 
