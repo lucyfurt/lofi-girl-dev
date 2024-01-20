@@ -45,7 +45,7 @@ input[type="submit"]:hover {
 
 #menu-h {
     background-color: rgba(131, 49, 185, 0.8);
-    position: absolute;
+    position: relative;
     width: 100%;
     z-index: 1;
     padding: 50px 0px;
@@ -84,8 +84,8 @@ input[type="submit"]:hover {
 }
 
 #btn-direction {
-    position: absolute;
-    z-index: 2;
+    position: relative;
+    z-index: 1;
     top: 70%;
     transform: translateY(10%);
     display: flex;
@@ -135,6 +135,9 @@ input[type="submit"]:hover {
     max-width: 300px;
     margin: 0 auto;
 }
+
+#myFormModal {
+    z-index: 2; }
 
 #img {
     background-image: none;
