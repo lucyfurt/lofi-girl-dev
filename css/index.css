@@ -26,7 +26,7 @@ footer {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
+   
 }
 #btn-direction {
     position: relative;
@@ -34,9 +34,8 @@ footer {
     top: 60%;
     transform: translateY(10%);
     display: block;  
-    align-items: center;
-    fill: aliceblue;   
 }
+   
 
 .botao {
     padding: 30px 30px;
@@ -51,6 +50,53 @@ footer {
     
 }
 
+.player-container {
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.player {
+    padding: 15px;
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+button {
+    padding: 10px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#progressContainer {
+    flex-grow: 1;
+    margin: 0 10px;
+    position: relative;
+}
+
+#progressBar {
+    height: 10px;
+    background-color: #ccc;
+    width: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.volume-slider-container {
+    margin-top: 10px;
+}
+
+input[type="range"] {
+    width: 100%;
+}
 
 @media only screen and (max-width: 600px) {
     #menu-h ul li {

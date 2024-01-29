@@ -4,36 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lofi - Dev Girl</title>
+    <title>Lofi - Dev</title>
     <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
-
     <div>
         <div>
-
             <a href="#"><img src="img/instagram.svg" alt="instagram" /></a>
             <a href="#"><img src="img/clock.svg" alt="pomodoro" /></a>
             <a href="#"><img src="img/heart.svg" alt="about" /></a>
             <a href="#"><img src="img/github.svg" alt="about" /></a>
-
         </div>
     </div>
-
     <div id="container">
         <div id="btn-direction">
-            <img src="img/chevrons-left.svg" id="playButton1" class="botao">
-            <img src="img/play.svg" id="playButton1" class="botao">
-            <audio id="myAudio1" src="sound/lofi-study-112191.mp3"></audio>
-            </img> 
-            <img src="img/chevrons-right.svg" id="playButton1" class="botao">
-
+            <div class="player-container">
+                <div class="player">
+                    <audio id="audio"></audio>
+                    <div class="player-controls">
+                        <button id="prevBtn">&#9194;</button>
+                        <button id="playPauseBtn">&#9654;</button>
+                        <button id="nextBtn">&#9193;</button>
+                        <div id="progressContainer">
+                            <div id="progressBar"></div>
+                        </div>
+                        <button id="volumeBtn">&#128266;</button>
+                    </div>
+                    <div class="volume-slider-container">
+                        <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1">
+                    </div>
+                </div>
+            </div>
         </div>
-
     </div>
-    </div>
-
     <footer>
         <p>&copy; 2024 Luciana Furtado - Todos os direitos reservados</p>
     </footer>

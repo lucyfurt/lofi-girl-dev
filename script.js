@@ -1,79 +1,90 @@
-document.addEventListener("DOMContentLoaded", function () {
+const audio = document.getElementById('audio');
+const playPauseBtn = document.getElementById('playPauseBtn');
+const progressBar = document.getElementById('progressBar');
+const volumeBtn = document.getElementById('volumeBtn');
+const volumeSlider = document.getElementById('volumeSlider');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
 
-    var audio1 = document.getElementById("myAudio1");
-    var audio2 = document.getElementById("myAudio2");
+const playlistData = [
+    { title: 'Música 1', artist: 'Artista 1', src: '../sound/lofi.mp3' },
+    { title: 'Música 2', artist: 'Artista 2', src: '../sound/rain.mp3' },
+    // Adicione mais músicas conforme necessário
+];
 
-    var playButton1 = document.getElementById("playButton1");
-    var playButton2 = document.getElementById("playButton2");
+let currentSongIndex = 0;
 
+function loadSong(index) {
+    audio.src = playlistData[index].src;
+    audio.load();
+    playPauseBtn.innerHTML = '&#9654;';
+}
 
-    playButton1.addEventListener("click", function () {
-        togglePlay(audio1, playButton1);
-    });
-
-    playButton2.addEventListener("click", function () {
-        togglePlay(audio2, playButton2);
-    });
-
-    function togglePlay(audio, button) {
-        if (audio.paused) {
-            audio.play();
-
-        } else {
-            audio.pause();
-
-        }
+function togglePlayPause() {
+    if (audio.paused || audio.ended) {
+        audio.play();
+        playPauseBtn.innerHTML = '&#9208;';
+    } else {
+        audio.pause();
+        playPauseBtn.innerHTML = '&#9654;';
     }
-})
-document.addEventListener('DOMContentLoaded', function () {
-    var openModalBtn = document.getElementById('openModalBtn');
-    var closeModalBtn = document.getElementById('closeModalBtn');
-    var modal = document.getElementById('myModal');
+}
 
-    var openFormModalBtn = document.getElementById('openFormModalBtn');
-    var closeFormModalBtn = document.getElementById('closeFormModalBtn');
-    var formModal = document.getElementById('myFormModal');
-    var form = document.getElementById('myForm');
+function updateProgressBar() {
+    const percentage = (audio.currentTime / audio.duration) * 100;
+    progressBar.style.width = `${percentage}%`;
+}
 
-    openModalBtn.addEventListener('click', function () {
-        modal.style.display = 'block';
-    });
+function resetPlayer() {
+    playPauseBtn.innerHTML = '&#9654;';
+    progressBar.style.width = '0';
+}
 
-    closeModalBtn.addEventListener('click', function () {
-        modal.style.display = 'none';
-    });
+function toggleMute() {
+    audio.muted = !audio.muted;
+    volumeBtn.innerHTML = audio.muted ? '&#128263;' : '&#128266;';
+}
 
-    window.addEventListener('click', function (event) {
-        if (event.target == modal) {
-            modal.style.display = 'none';
-        }
-    });
+function setVolume() {
+    audio.volume = volumeSlider.value;
+}
 
-    openFormModalBtn.addEventListener('click', function () {
-        formModal.style.display = 'block';
-    });
-
-    closeFormModalBtn.addEventListener('click', function () {
-        formModal.style.display = 'none';
-    });
-
-    window.addEventListener('click', function (event) {
-        if (event.target == formModal) {
-            formModal.style.display = 'none';
-        }
-    });
-
-    form.addEventListener('submit', function (event) {
-        event.preventDefault();
-
-        var formData = new FormData(form);
-
-        var mailtoLink = 'mailto:lucianafurtadodev@gmail.com'
-            + '?subject=Novo Formulário Recebido'
-            + '&body=Nome: ' + formData.get('name') + '%0A'
-            + 'E-mail: ' + formData.get('email');
-        + 'Mensagem: ' + formData.get('mensagem');
-
-        window.location.href = mailtoLink;
-    });
+prevBtn.addEventListener('click', () => {
+    currentSongIndex = (currentSongIndex - 1 + playlistData.length) % playlistData.length;
+    loadSong(currentSongIndex);
+    audio.play();
 });
+
+nextBtn.addEventListener('click', () => {
+    currentSongIndex = (currentSongIndex + 1) % playlistData.length;
+    loadSong(currentSongIndex);
+    audio.play();
+});
+
+audio.addEventListener('timeupdate', updateProgressBar);
+audio.addEventListener('ended', () => {
+    resetPlayer();
+    currentSongIndex = (currentSongIndex + 1) % playlistData.length;
+    loadSong(currentSongIndex);
+    audio.play();
+});
+
+volumeBtn.addEventListener('click', toggleMute);
+volumeSlider.addEventListener('input', setVolume);
+
+progressBar.parentElement.addEventListener('click', (e) => {
+    const clickX = e.pageX - progressBar.parentElement.offsetLeft;
+    const newTime = (clickX / progressBar.parentElement.offsetWidth) * audio.duration;
+    audio.currentTime = newTime;
+});
+
+audio.addEventListener('volumechange', () => {
+    volumeBtn.innerHTML = audio.muted ? '&#128263;' : '&#128266;';
+});
+
+// Carregar a primeira música ao iniciar
+loadSong(currentSongIndex);
+audio.play(); // Iniciar a reprodução automaticamente
+
+// Adicionar evento de clique para o botão play/pause
+playPauseBtn.addEventListener('click', togglePlayPause);
