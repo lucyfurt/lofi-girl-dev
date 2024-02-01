@@ -21,13 +21,13 @@ footer {
     color: aliceblue;
 }
 
-
 #container {
     height: 100vh;
     display: flex;
     flex-direction: column;
    
 }
+
 #btn-direction {
     position: relative;
     z-index: 1;
@@ -36,7 +36,6 @@ footer {
     display: block;  
 }
    
-
 .botao {
     padding: 30px 30px;
     margin-bottom: 10px;
@@ -116,4 +115,18 @@ input[type="range"] {
     #menu-h ul {
         padding-inline: 50px; 
     }
+}
+
+#hour{
+    color: #fff;
+}
+#minute{
+    color: #fff
+}
+#second{
+    color: #fff;
+
+}
+#millisecond{
+    color: #fff;
 }
