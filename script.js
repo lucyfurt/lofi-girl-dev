@@ -8,8 +8,14 @@ const nextBtn = document.getElementById('nextBtn');
 
 const playlistData = [
     { title: 'Música 1', artist: 'Artista 1', src: '../sound/lofi.mp3' },
-    { title: 'Música 2', artist: 'Artista 2', src: '../sound/rain.mp3' },
-    // Adicione mais músicas conforme necessário
+    { title: 'Música 2', artist: 'Artista 2', src: '../sound/1.mp3' },
+    { title: 'Música 3', artist: 'Artista 3', src: '../sound/2.mp3' },
+    { title: 'Música 4', artist: 'Artista 4', src: '../sound/3.mp3' },
+    { title: 'Música 5', artist: 'Artista 5', src: '../sound/4.mp3' },
+    { title: 'Música 6', artist: 'Artista 6', src: '../sound/5.mp3' },
+    { title: 'Música 7', artist: 'Artista 7', src: '../sound/6.mp3' },
+    { title: 'Música 8', artist: 'Artista 8', src: '../sound/7.mp3' },
+    { title: 'Música 9', artist: 'Artista 8', src: '../sound/rain.mp3' },
 ];
 
 let currentSongIndex = 0;
