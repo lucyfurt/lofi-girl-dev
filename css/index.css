@@ -146,6 +146,8 @@ input[type="range"] {
 #form-main{
     padding: 10px;
     margin: 10px;
+    color: #fff;
+    font-size: 20px;
 }
 #timerFormWrapper{
     min-block-size: 10px;
@@ -158,7 +160,3 @@ input[type="range"] {
     margin-right: 80%;
 }
 
-p {
-    margin: 0px;
-    padding-left: 20px;
-}
