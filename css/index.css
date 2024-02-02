@@ -130,3 +130,35 @@ input[type="range"] {
 #millisecond{
     color: #fff;
 }
+
+#aboutWrapper {
+    color: #fff;
+    
+}
+#button-timer{
+    border-radius: 10px;
+    font-size: 15px;
+    text-decoration: #001018;
+}
+#display-timer{
+    font-size: 35px;
+}
+#form-main{
+    padding: 10px;
+    margin: 10px;
+}
+#timerFormWrapper{
+    min-block-size: 10px;
+    background-color: #001018;
+    margin-right: 80%;
+}
+#card-profile {
+    min-block-size: 10px;
+    background-color: #001018;
+    margin-right: 80%;
+}
+
+p {
+    margin: 0px;
+    padding-left: 20px;
+}

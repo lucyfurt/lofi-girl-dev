@@ -9,31 +9,41 @@
 </head>
 
 <body>
-   
+
     <div>
         <div>
             <a href="#"><img src="img/instagram.svg" alt="instagram" /></a>
             <a href="#"><img src="img/clock.svg" alt="pomodoro" /></a>
             <a href="#"><img src="img/heart.svg" alt="about" /></a>
-            <a href="#"><img src="img/github.svg" alt="about" /></a>
+            <a href="#"><img src="img/github.svg" alt="github" /></a>
         </div>
     </div>
     <div id="timerFormWrapper" style="display: none;">
-        <form name="form_main">
-            <div>
-                <span id="hour">00</span>:<span id="minute">00</span>:<span id="second">00</span>:<span id="millisecond">000</span>
+        <form id="form-main" name="form_main">
+            <div id="display-timer">
+                <span id="hour">00</span>:<span id="minute">00</span>:<span id="second">00</span>:<span
+                    id="millisecond">000</span>
             </div>
-    
+
             <br />
-    
-            <button type="button" name="start">start</button>
-            <button type="button" name="pause">pause</button>
-            <button type="button" name="reset">reset</button>
+
+            <button id="button-timer" name="start">Start</button>
+            <button id="button-timer" type="button" name="pause">Pause</button>
+            <button id="button-timer" type="button" name="reset">Reset</button>
         </form>
+    </div>
+    <div id="aboutWrapper" style="display: none;">
+
+        <div id="card-profile">
+            <p>Luciana Furtado</p>
+            <p>FullStack Developer</p>
+            <p>lucianafurtadodev@gmail.com</p>
+        </div>
+        <br />
     </div>
 
     <div id="container">
-        <div id="btn-direction">         
+        <div id="btn-direction">
             <div class="player-container">
                 <div class="player">
                     <audio id="audio"></audio>

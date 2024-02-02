@@ -158,4 +158,13 @@ document.querySelector('a[href="#"] img[alt="pomodoro"]').addEventListener('clic
     }
 });
 
+document.querySelector('a[href="#"] img[alt="about"]').addEventListener('click', function () {
+    
+    var aboutWrapper = document.getElementById('aboutWrapper');
 
+    if (aboutWrapper.style.display === 'none') {
+        aboutWrapper.style.display = 'block';
+    } else {
+        aboutWrapper.style.display = 'none';
+    }
+});
