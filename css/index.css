@@ -22,7 +22,7 @@ footer {
 }
 
 #container {
-    height: 100vh;
+    height: 30vh;
     display: flex;
     flex-direction: column;
    
@@ -31,8 +31,8 @@ footer {
 #btn-direction {
     position: relative;
     z-index: 1;
-    top: 60%;
-    transform: translateY(10%);
+    top: 0%;
+    transform: translateY(-10%);
     display: block;  
 }
    
