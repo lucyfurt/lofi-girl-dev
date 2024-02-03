@@ -174,3 +174,21 @@ document.querySelector('a[href="#"] img[alt="about"]').addEventListener('click',
         aboutWrapper.style.display = 'none';
     }
 });
+
+function addNote() {
+    var noteText = document.getElementById("note-input").value;
+
+    if (noteText.trim() === "") {
+        alert("Por favor, digite uma nota.");
+        return;
+    }
+
+    var notesContainer = document.getElementById("notes-container");
+    var newNote = document.createElement("div");
+    newNote.className = "note";
+    newNote.innerHTML = noteText;
+    notesContainer.appendChild(newNote);
+
+    // Limpar o campo de entrada
+    document.getElementById("note-input").value = "";
+}
