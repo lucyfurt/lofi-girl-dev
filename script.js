@@ -94,62 +94,79 @@ audio.play(); // Iniciar a reprodução automaticamente
 
 // Adicionar evento de clique para o botão play/pause
 playPauseBtn.addEventListener('click', togglePlayPause);
+document.addEventListener('DOMContentLoaded', function() {
+    // Coloque seu código aqui
+    let workDuration = 25 * 60; // 25 minutos em segundos
+let breakDuration = 5 * 60; // 5 minutos em segundos
 
-"use strict";
-
-let hour = 0;
-let minute = 0;
-let second = 0;
-let millisecond = 0;
+let currentDuration = workDuration;
+let isWorking = true;
+let isPaused = true;
 
 let cron;
 
-document.form_main.start.onclick = () => start();
-document.form_main.pause.onclick = () => pause();
+document.form_main.start.onclick = () => startPauseToggle();
 document.form_main.reset.onclick = () => reset();
 
-function start() {
-    pause();
-    cron = setInterval(() => { timer(); }, 10);
-  }
-  
-  function pause() {
-    clearInterval(cron);
-  }
-  
-  function reset() {
-    hour = 0;
-    minute = 0;
-    second = 0;
-    millisecond = 0;
-    document.getElementById('hour').innerText = '00';
-    document.getElementById('minute').innerText = '00';
-    document.getElementById('second').innerText = '00';
-    document.getElementById('millisecond').innerText = '000';
-  }
+function startPauseToggle() {
+    if (isPaused) {
+        start();
+    } else {
+        pause();
+    }
+}
 
-  function timer() {
-    if ((millisecond += 10) == 1000) {
-      millisecond = 0;
-      second++;
+function start() {
+    isPaused = false;
+    cron = setInterval(() => { timer(); }, 1000);
+}
+
+function pause() {
+    isPaused = true;
+    clearInterval(cron);
+}
+
+function reset() {
+    pause();
+    if (isWorking) {
+        currentDuration = workDuration;
+    } else {
+        currentDuration = breakDuration;
     }
-    if (second == 60) {
-      second = 0;
-      minute++;
+    updateDisplay();
+}
+
+function timer() {
+    if (currentDuration > 0) {
+        currentDuration--;
+    } else {
+        // Se a contagem regressiva chegar a zero, alternar entre trabalho e intervalo
+        isWorking = !isWorking;
+        if (isWorking) {
+            currentDuration = workDuration;
+        } else {
+            currentDuration = breakDuration;
+        }
     }
-    if (minute == 60) {
-      minute = 0;
-      hour++;
-    }
-    document.getElementById('hour').innerText = returnData(hour);
-    document.getElementById('minute').innerText = returnData(minute);
-    document.getElementById('second').innerText = returnData(second);
-    document.getElementById('millisecond').innerText = returnData(millisecond);
-  }
-  
-  function returnData(input) {
-    return input > 10 ? input : `0${input}`
-  }
+    updateDisplay();
+}
+
+function updateDisplay() {
+    const minutes = Math.floor(currentDuration / 60);
+    const seconds = currentDuration % 60;
+    document.getElementById('minute').innerText = returnData(minutes);
+    document.getElementById('second').innerText = returnData(seconds);
+    document.getElementById('status').innerText = isWorking ? "Trabalhando" : "Intervalo";
+}
+
+function returnData(input) {
+    return input >= 10 ? input : `0${input}`;
+}
+
+});
+"use strict";
+
+
 
   
 document.querySelector('a[href="#"] img[alt="pomodoro"]').addEventListener('click', function () {
