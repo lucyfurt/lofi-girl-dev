@@ -11,15 +11,7 @@ body {
     background-color: #001018;
 }
 
-footer {
-    background-color: #001018;
-    padding: 10px;
-    text-align: center;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    color: aliceblue;
-}
+
 
 button {  
     font-size: 20px;
@@ -63,16 +55,14 @@ input[type="range"] {
 
 .container {
     max-width: 600px;
-    margin: 0px auto;
+    margin: -20px 400px 0px 400px;
     padding: 10px;
     background-color: #8c7777;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
 }
 
-#notes-container {
-    margin-top: 20px;
-}
 
 .note {
     background-color: #f8f8f8;
